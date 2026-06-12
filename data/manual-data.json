@@ -1,7 +1,21 @@
 {
   "updatedAt": "2026-06-12T08:30:00+07:00",
   "source": "Manual data - update dari file data/manual-data.json",
-  "matches": [],
+  "matches": [
+    {
+    "id": "G1-001",
+    "round": "Group Stage - 1",
+    "status": "FT",
+    "home": "Mexico",
+    "away": "South Africa",
+    "goalsHome": 2,
+    "goalsAway": 0,
+    "yellowHome": 1,
+    "redHome": 1,
+    "yellowAway": 2,
+    "redAway": 2
+  }
+  ],
   "standings": [],
   "contohMatch": {
     "id": "G1-001",
