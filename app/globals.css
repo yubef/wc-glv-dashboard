@@ -1,0 +1,209 @@
+:root {
+  --bg: #0d1117;
+  --card: #151b23;
+  --card-2: #1f2630;
+  --text: #f4f7fb;
+  --muted: #9ca8b5;
+  --line: #2d3745;
+  --accent: #f5c542;
+  --danger: #ff6b6b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, #233044, var(--bg) 42%);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button { font: inherit; }
+
+.page {
+  width: min(1180px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 28px 0 56px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+h1, h2, p { margin-top: 0; }
+
+h1 {
+  font-size: clamp(34px, 6vw, 64px);
+  line-height: 0.95;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  max-width: 720px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.refresh {
+  background: var(--accent);
+  color: #1b1b1b;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.refresh:disabled { opacity: 0.7; cursor: wait; }
+
+.meta-grid, .podium {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.meta-card, .podium-card, .board, .rules, .error-card {
+  background: rgba(21, 27, 35, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+.meta-card {
+  padding: 14px 16px;
+}
+
+.meta-card span, .board-header p, small {
+  color: var(--muted);
+}
+
+.meta-card strong {
+  display: block;
+  margin-top: 6px;
+}
+
+.podium-card {
+  padding: 22px;
+  min-height: 170px;
+}
+
+.podium-card .rank {
+  font-size: 32px;
+}
+
+.podium-card h2 {
+  margin: 12px 0 8px;
+  font-size: 28px;
+}
+
+.podium-card p { color: var(--muted); }
+.podium-card strong { font-size: 26px; }
+.rank-1 { border-color: rgba(245, 197, 66, 0.65); }
+
+.board { overflow: hidden; margin-bottom: 18px; }
+.board-header { padding: 20px 20px 8px; }
+.board-header h2, .rules h2 { margin-bottom: 8px; }
+
+.table { width: 100%; }
+.table-row {
+  display: grid;
+  grid-template-columns: 80px 1.2fr 2fr 120px;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  padding: 14px 20px;
+  border-top: 1px solid var(--line);
+}
+
+.table-head {
+  color: var(--muted);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.table-button {
+  background: transparent;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.table-button:hover { background: rgba(255,255,255,0.04); }
+.details {
+  padding: 0 20px 18px 100px;
+  display: grid;
+  gap: 12px;
+}
+
+.team-card {
+  background: var(--card-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.team-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.stats-grid, .points-breakdown, .rules-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stats-grid span, .points-breakdown span, .rules-grid span {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 999px;
+  padding: 7px 10px;
+  color: #d7dee7;
+  font-size: 13px;
+}
+
+.points-breakdown { margin-top: 10px; margin-bottom: 10px; }
+
+.rules {
+  padding: 20px;
+}
+
+.error-card {
+  padding: 16px;
+  margin-bottom: 18px;
+  border-color: rgba(255, 107, 107, 0.6);
+  color: var(--danger);
+  display: grid;
+  gap: 8px;
+}
+
+@media (max-width: 780px) {
+  .hero { display: block; }
+  .refresh { margin-top: 18px; width: 100%; }
+  .meta-grid, .podium { grid-template-columns: 1fr; }
+  .table-row { grid-template-columns: 54px 1fr; }
+  .table-row span:nth-child(3), .table-head span:nth-child(3) { grid-column: 2; color: var(--muted); }
+  .table-row strong:nth-child(4), .table-head span:nth-child(4) { grid-column: 2; }
+  .details { padding: 0 12px 14px; }
+}
