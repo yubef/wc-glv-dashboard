@@ -94,6 +94,7 @@ Edit file:
 
 ```text
 lib/participants.ts
+Update deployment after API key setup.
 ```
 
 ## Ubah aturan poin
