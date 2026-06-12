@@ -82,10 +82,10 @@ export default function Home() {
     <main className="page">
       <section className="hero">
         <div>
-          <p className="eyebrow">Arisan Piala Dunia 2026</p>
+          <p className="eyebrow">Piala Dunia 2026</p>
           <h1>Live Dashboard Poin</h1>
           <p className="subtitle">
-            Juara arisan ditentukan dari total poin 2 negara.
+            Juara ditentukan dari total poin 2 negara.
           </p>
         </div>
         <button className="refresh" onClick={load} disabled={loading}>
@@ -130,7 +130,7 @@ export default function Home() {
 
       <section className="board">
         <div className="board-header">
-          <h2>Klasemen Arisan</h2>
+          <h2>Klasemen</h2>
           <p>Klik nama untuk lihat detail poin tiap negara.</p>
         </div>
 
