@@ -88,9 +88,6 @@ export default function Home() {
             Juara ditentukan dari total poin 2 negara.
           </p>
         </div>
-        <button className="refresh" onClick={load} disabled={loading}>
-          {loading ? "Update..." : "Refresh sekarang"}
-        </button>
       </section>
 
       {data && !data.ok ? (
