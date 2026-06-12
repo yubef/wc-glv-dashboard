@@ -14,6 +14,19 @@
     "redHome": 1,
     "yellowAway": 2,
     "redAway": 2
+  },
+    {
+    "id": "G1-002",
+    "round": "Group Stage - 1",
+    "status": "FT",
+    "home": "South Korea",
+    "away": "Czechia",
+    "goalsHome": 2,
+    "goalsAway": 1,
+    "yellowHome": 1,
+    "redHome": 0,
+    "yellowAway": 1,
+    "redAway": 0
   }
   ],
   "standings": [],
