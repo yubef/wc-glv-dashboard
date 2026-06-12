@@ -1,0 +1,24 @@
+{
+  "updatedAt": "2026-06-12T08:30:00+07:00",
+  "source": "Manual data - update dari file data/manual-data.json",
+  "matches": [],
+  "standings": [],
+  "contohMatch": {
+    "id": "G1-001",
+    "round": "Group Stage - 1",
+    "status": "FT",
+    "home": "Spain",
+    "away": "Iraq",
+    "goalsHome": 3,
+    "goalsAway": 0,
+    "yellowHome": 1,
+    "redHome": 0,
+    "yellowAway": 2,
+    "redAway": 0
+  },
+  "contohStanding": {
+    "team": "Spain",
+    "rank": 1,
+    "group": "Group A"
+  }
+}

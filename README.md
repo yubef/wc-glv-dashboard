@@ -1,15 +1,99 @@
-# Dashboard Arisan Piala Dunia 2026
+# Dashboard Arisan Piala Dunia 2026 - Manual Update
 
 Dashboard ini menghitung juara arisan berdasarkan total poin dari 2 negara per peserta.
+Versi ini **tidak butuh API key**. Semua update dilakukan manual lewat file:
 
-## Fitur
+```text
+data/manual-data.json
+```
 
-- Klasemen arisan otomatis.
-- Detail poin per negara.
-- Auto refresh browser setiap 3 menit.
-- Bisa jalan tanpa database.
-- Bisa live memakai API-Football/API-Sports.
-- Jika API key belum diisi, dashboard memakai data demo.
+Setiap kali file itu diedit di GitHub, Vercel akan otomatis deploy ulang. Setelah deploy selesai, dashboard berubah.
+
+## Cara update skor manual
+
+1. Buka repo GitHub.
+2. Buka file:
+
+```text
+data/manual-data.json
+```
+
+3. Klik ikon pensil / edit.
+4. Tambahkan hasil pertandingan ke bagian `matches`.
+5. Update `updatedAt`.
+6. Klik **Commit changes**.
+7. Tunggu Vercel deploy ulang.
+
+## Contoh isi match
+
+```json
+{
+  "id": "G1-001",
+  "round": "Group Stage - 1",
+  "status": "FT",
+  "home": "Spain",
+  "away": "Iraq",
+  "goalsHome": 3,
+  "goalsAway": 0,
+  "yellowHome": 1,
+  "redHome": 0,
+  "yellowAway": 2,
+  "redAway": 0
+}
+```
+
+## Format status
+
+Gunakan:
+
+```text
+FT  = selesai normal
+AET = selesai extra time
+PEN = selesai penalti
+NS  = belum main
+```
+
+Untuk match yang belum selesai, jangan dimasukkan dulu. Cara paling aman: masukkan hanya pertandingan yang sudah final.
+
+## Update posisi grup
+
+Setelah klasemen grup sudah jelas, isi bagian `standings`.
+
+Contoh:
+
+```json
+{
+  "team": "Spain",
+  "rank": 1,
+  "group": "Group A"
+}
+```
+
+Poin grup:
+
+| Posisi grup | Poin |
+|---|---:|
+| Juara grup | +10 |
+| Runner-up | +7 |
+| Peringkat 3 | +4 |
+| Peringkat 4 | 0 |
+
+## Nama negara yang dipakai
+
+Gunakan nama negara seperti ini agar cocok dengan peserta:
+
+```text
+Spain, Iraq, France, Ghana, England, Haiti, Portugal, DR Congo,
+Argentina, Uzbekistan, Brazil, Paraguay, Netherlands, Jordan,
+Germany, Sweden, Belgium, Saudi Arabia, Norway, Australia,
+Japan, New Zealand, Uruguay, Egypt, Switzerland, Scotland,
+Croatia, Bosnia and Herzegovina, Colombia, Austria, Ecuador,
+Czechia, Senegal, Qatar, Türkiye, Tunisia, Morocco, South Africa,
+Algeria, Mexico, Ivory Coast, South Korea, United States, Curaçao,
+Canada, Cape Verde, Iran, Panama
+```
+
+Beberapa alias tetap dikenali, misalnya `Turkey` akan dibaca sebagai `Türkiye`, dan `USA` sebagai `United States`.
 
 ## Aturan poin default
 
@@ -32,69 +116,12 @@ Dashboard ini menghitung juara arisan berdasarkan total poin dari 2 negara per p
 | Runner-up | +35 |
 | Juara dunia | +50 |
 
-## Cara jalan lokal
-
-```bash
-npm install
-cp .env.example .env.local
-npm run dev
-```
-
-Buka:
-
-```text
-http://localhost:3000
-```
-
-## Cara deploy ke Vercel gratis
-
-1. Upload folder ini ke GitHub.
-2. Buka Vercel, pilih **Add New Project**.
-3. Import repo GitHub.
-4. Isi Environment Variables:
-
-```text
-APIFOOTBALL_KEY=isi_api_key_kamu
-APIFOOTBALL_BASE=https://v3.football.api-sports.io
-APIFOOTBALL_LEAGUE=1
-APIFOOTBALL_SEASON=2026
-ENABLE_EVENT_POINTS=false
-NEXT_PUBLIC_AUTO_REFRESH_MS=180000
-```
-
-5. Deploy.
-
-## Catatan update otomatis
-
-Di Vercel Hobby/free, Cron bawaan Vercel hanya cocok untuk update harian. Untuk dashboard ini, update otomatis dibuat dengan cara lebih ringan:
-
-- Browser refresh data ke `/api/leaderboard` setiap beberapa menit.
-- API route mengambil data terbaru dari API-Football.
-- Jadi setelah pertandingan selesai, begitu data API sudah update, dashboard ikut berubah saat halaman terbuka/refresh.
-
-Jika mau benar-benar sync background tiap 5 menit walaupun dashboard tidak dibuka, gunakan salah satu:
-
-- Vercel Pro; atau
-- cron-job.org / GitHub Actions gratis untuk hit endpoint `/api/leaderboard` berkala.
-
-## Catatan kartu kuning/merah
-
-Default `ENABLE_EVENT_POINTS=false`, supaya hemat quota API. Jika mau hitung kartu:
-
-```text
-ENABLE_EVENT_POINTS=true
-EVENT_FIXTURE_LIMIT=104
-```
-
-Tapi ini membuat dashboard memanggil endpoint event per pertandingan, sehingga quota API cepat habis.
-
 ## Ubah peserta
 
 Edit file:
 
 ```text
 lib/participants.ts
-Update deployment after API key setup.
 ```
 
 ## Ubah aturan poin
