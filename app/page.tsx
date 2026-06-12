@@ -85,7 +85,7 @@ export default function Home() {
           <p className="eyebrow">Arisan Piala Dunia 2026</p>
           <h1>Live Dashboard Poin</h1>
           <p className="subtitle">
-            Juara arisan ditentukan dari total poin 2 negara. Dashboard refresh otomatis setiap {Math.round(AUTO_REFRESH_MS / 60000)} menit.
+            Juara arisan ditentukan dari total poin 2 negara.
           </p>
         </div>
         <button className="refresh" onClick={load} disabled={loading}>
