@@ -83,7 +83,7 @@ export default function Home() {
       <section className="hero">
         <div>
           <p className="eyebrow">Piala Dunia 2026</p>
-          <h1>Live Dashboard Poin</h1>
+          <h1>Dashboard Poin</h1>
           <p className="subtitle">
             Juara ditentukan dari total poin 2 negara.
           </p>
